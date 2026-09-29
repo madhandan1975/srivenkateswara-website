@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sri Venkateswara Crane Service | Heavy Lift & Rigging</title>
+<link rel="icon" href="SVLogo.jpg" type="image/jpeg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-dark: #070c12;
+    --card-surface: rgba(14, 23, 33, 0.78);
+    --gold: #d4af37;
+    --gold-glow: rgba(212, 175, 55, 0.25);
+    --gold-bright: #f5e7be;
+    --cyan: #38bdf8;
+    --off-white: #f1f5f9;
+    --muted: #94a3b8;
+    --line: rgba(212, 175, 55, 0.18);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg-dark);
+    color: var(--off-white);
+    font-family: 'Archivo', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  .bg-ambient {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background: 
+      radial-gradient(circle at 85% 15%, rgba(212, 175, 55, 0.08) 0%, transparent 45%),
+      radial-gradient(circle at 10% 60%, rgba(56, 189, 248, 0.05) 0%, transparent 50%),
+      #060a0f;
+  }
+
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(7, 12, 18, 0.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+  }
+  .brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .brand-logo-frame {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--gold);
+    box-shadow: 0 0 12px var(--gold-glow);
+    background: #000;
+  }
+  .brand-logo { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+  .brand-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 1.5px;
+    color: var(--gold-bright);
+    line-height: 1;
+  }
+  .brand-sub { font-size: 10px; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase; }
+
+  nav ul { list-style: none; display: flex; gap: 28px; font-size: 14px; font-weight: 500; }
+  nav a { color: var(--off-white); text-decoration: none; opacity: 0.8; transition: 0.2s; }
+  nav a:hover { opacity: 1; color: var(--gold-bright); }
+
+  .btn-dispatch {
+    background: linear-gradient(135deg, var(--gold) 0%, #b8860b 100%);
+    color: #070c12;
+    padding: 10px 20px;
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 14px var(--gold-glow);
+    display: inline-block;
+  }
+
+  .hero {
+    position: relative;
+    padding: 100px 0 80px;
+    border-bottom: 1px solid var(--line);
+    background: radial-gradient(circle at 50% 20%, rgba(14, 26, 38, 0.6) 0%, transparent 80%);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 99px;
+    background: rgba(212, 175, 55, 0.08);
+    border: 1px solid var(--line);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+  .hero-badge span { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px #22c55e; }
+
+  h1.hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 7vw, 90px);
+    line-height: 0.95;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+  }
+  h1.hero-title span { color: var(--gold); }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 540px;
+    margin-bottom: 36px;
+  }
+
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold);
+    color: #070c12;
+    padding: 14px 28px;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  .btn-secondary {
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.02);
+    color: var(--off-white);
+    padding: 14px 28px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid var(--line);
+  }
+  .stat-val { font-family: 'Bebas Neue', sans-serif; font-size: 38px; color: var(--cyan); line-height: 1; }
+  .stat-lbl { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+  .hero-media { display: flex; justify-content: center; }
+  .poster-card {
+    border-radius: 16px;
+    padding: 8px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.4) 0%, rgba(56, 189, 248, 0.1) 100%);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.7), 0 0 35px var(--gold-glow);
+  }
+  .poster-card img { display: block; width: 100%; max-width: 380px; border-radius: 12px; }
+
+  section { padding: 90px 0; border-bottom: 1px solid var(--line); }
+  .section-tag { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+  h2.section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(34px, 4.5vw, 54px); letter-spacing: 1px; margin-top: 6px; }
+
+  .fleet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 44px;
+  }
+  .fleet-card {
+    background: var(--card-surface);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .fleet-capacity { font-family: 'Bebas Neue', sans-serif; font-size: 16px; color: var(--cyan); letter-spacing: 1.5px; }
+  .fleet-name { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--gold-bright); margin: 4px 0 12px; line-height: 1; }
+  .fleet-specs { list-style: none; margin: 16px 0; font-size: 13px; color: var(--muted); }
+  .fleet-specs li { margin-bottom: 6px; display: flex; justify-content: space-between; }
+  .fleet-specs span { color: var(--off-white); font-weight: 600; }
+
+  .service-hub { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 44px; }
+  .hub-panel {
+    background: var(--card-surface);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 36px;
+  }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); margin-bottom: 6px; }
+  .form-control {
+    width: 100%;
+    background: rgba(6, 10, 15, 0.75);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 12px 14px;
+    color: #fff;
+    font-family: 'Archivo', sans-serif;
+    font-size: 14px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .contact-bar {
+    margin-top: 24px;
+    padding: 18px 24px;
+    background: rgba(212, 175, 55, 0.08);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .contact-bar span { font-size: 14px; color: var(--muted); }
+  .contact-bar strong { font-size: 18px; color: var(--gold-bright); }
+
+  .whatsapp-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #25d366;
+    color: #fff;
+    border-radius: 50px;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+    z-index: 999;
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid, .service-hub { grid-template-columns: 1fr; }
+    nav ul { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-ambient"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="brand">
+      <div class="brand-logo-frame">
+        <img class="brand-logo" src="SVLogo.jpg" alt="Sri Venkateswara Logo" />
+      </div>
+      <div>
+        <div class="brand-name">SRI VENKATESWARA</div>
+        <div class="brand-sub">Crane Service &amp; Heavy Lift</div>
+      </div>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#fleet">The Fleet</a></li>
+        <li><a href="#estimator">Lift Estimator</a></li>
+        <li><a href="#payments">Advance Deposit</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn-dispatch" href="tel:+919531857173">Direct: +91 95318 57173</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-badge">
+        <span></span> Statewide Tamil Nadu Heavy Lift Operations
+      </div>
+      <h1 class="hero-title">PRECISION IN <span>EVERY LIFT.</span> RIGGED TO PERFECTION.</h1>
+      <p class="hero-sub">Sri Venkateswara Crane Service provides certified mobile, crawler, and hydra cranes across Tamil Nadu[cite: 1]. Backed by verified load charts, tested rigging, and round-the-clock site dispatch[cite: 1].</p>
+      
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#estimator">Request Load Evaluation</a>
+        <a class="btn-secondary" href="tel:+919531857173">Call +91 95318 57173</a>
+      </div>
+
+      <div class="stats-bar">
+        <div>
+          <div class="stat-val">25T – 150T</div>
+          <div class="stat-lbl">Capacity Range</div>
+        </div>
+        <div>
+          <div class="stat-val">100%</div>
+          <div class="stat-lbl">Certified Riggers</div>
+        </div>
+        <div>
+          <div class="stat-val">24 / 7</div>
+          <div class="stat-lbl">Emergency Dispatch[cite: 1]</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-media">
+      <div class="poster-card">
+        <img src="SVLogo.jpg" alt="Sri Venkateswara Crane Service" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="fleet">
+  <div class="wrap">
+    <div class="section-tag">Heavy Equipment</div>
+    <h2 class="section-title">The Equipment Fleet</h2>
+    <div class="fleet-grid">
+      
+      <div class="fleet-card">
+        <div>
+          <div class="fleet-capacity">25 TON CLASS[cite: 1]</div>
+          <h3 class="fleet-name">Hydra Crane</h3>
+          <p style="font-size: 13px; color: var(--muted);">Ideal for quick turnaround on factory plant machinery, steel loading, and tight spaces[cite: 1].</p>
+          <ul class="fleet-specs">
+            <li>Boom Length: <span>18 - 24 m</span></li>
+            <li>Setup Time: <span>10 Mins</span></li>
+          </ul>
+        </div>
+        <a href="#estimator" class="btn-secondary" style="text-align: center; margin-top: 14px;">Select for Lift</a>
+      </div>
+
+      <div class="fleet-card">
+        <div>
+          <div class="fleet-capacity">50 - 70 TON CLASS</div>
+          <h3 class="fleet-name">All-Terrain Mobile</h3>
+          <p style="font-size: 13px; color: var(--muted);">Fast highway mobilization for girder launching, bridge projects, and tower erection[cite: 1].</p>
+          <ul class="fleet-specs">
+            <li>Main Boom: <span>42 - 50 m</span></li>
+            <li>Outriggers: <span>Full Hydraulic Multi-stage</span></li>
+          </ul>
+        </div>
+        <a href="#estimator" class="btn-secondary" style="text-align: center; margin-top: 14px;">Select for Lift</a>
+      </div>
+
+      <div class="fleet-card">
+        <div>
+          <div class="fleet-capacity">100 - 150 TON CLASS</div>
+          <h3 class="fleet-name">Heavy Crawler</h3>
+          <p style="font-size: 13px; color: var(--muted);">Engineered for long-duration infrastructure tasks and high stability on soft ground[cite: 1].</p>
+          <ul class="fleet-specs">
+            <li>Boom Reach: <span>Up to 72 m</span></li>
+            <li>Ground Footprint: <span>Broad Track Distribution</span></li>
+          </ul>
+        </div>
+        <a href="#estimator" class="btn-secondary" style="text-align: center; margin-top: 14px;">Select for Lift</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="estimator">
+  <div class="wrap">
+    <div class="section-tag">Operations &amp; Dispatch</div>
+    <h2 class="section-title">Schedule a Lift or Pay Advance[cite: 1]</h2>
+
+    <div class="service-hub">
+      <div class="hub-panel">
+        <h3 style="font-family: 'Bebas Neue'; font-size: 26px; color: var(--gold-bright); margin-bottom: 8px;">Request Load Evaluation</h3>
+        <p style="font-size: 13px; color: var(--muted); margin-bottom: 22px;">Submit your lift requirements. Our engineers review load charts and respond immediately.</p>
+        
+        <form onsubmit="handleQuoteSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Estimated Load Weight</label>
+              <input type="text" class="form-control" placeholder="e.g. 20 Tons" required />
+            </div>
+            <div class="form-group">
+              <label>Working Radius / Height</label>
+              <input type="text" class="form-control" placeholder="e.g. 30 Meters" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Site Location (Tamil Nadu)[cite: 1]</label>
+            <input type="text" class="form-control" placeholder="e.g. Oragadam, Chennai, Coimbatore" required />
+          </div>
+          <div class="form-group">
+            <label>Your Contact Phone</label>
+            <input type="tel" class="form-control" placeholder="+91 95318 57173" required />
+          </div>
+          <button type="submit" class="btn-primary" style="width: 100%; border:none; cursor:pointer;">
+            Submit Specs for Dispatch
+          </button>
+        </form>
+      </div>
+
+      <div class="hub-panel" id="payments">
+        <h3 style="font-family: 'Bebas Neue'; font-size: 26px; color: var(--gold-bright); margin-bottom: 8px;">Mobilization Advance[cite: 1]</h3>
+        <p style="font-size: 13px; color: var(--muted); margin-bottom: 22px;">Pay your booking deposit securely online via Razorpay[cite: 1].</p>
+        
+        <div class="form-group">
+          <label>Advance Amount (INR)</label>
+          <input type="number" id="pay-amount" class="form-control" placeholder="₹ Amount" min="1" />
+        </div>
+        <div class="form-group">
+          <label>Work Order / Reference ID (Optional)</label>
+          <input type="text" class="form-control" placeholder="e.g. SVC-2026" />
+        </div>
+        <button class="btn-dispatch" id="pay-btn" style="width: 100%; border: none; cursor: pointer; padding: 14px;">
+          Pay Advance Securely
+        </button>
+        <div id="pay-status" style="margin-top: 14px; font-size: 13px; color: var(--cyan);"></div>
+      </div>
+    </div>
+
+    <div class="contact-bar" id="contact">
+      <div>
+        <span>Direct Dispatch Line:</span>
+        <strong style="margin-left: 8px;"><a href="tel:+919531857173" style="color: var(--gold-bright); text-decoration: none;">+91 95318 57173</a></strong>
+      </div>
+      <div>
+        <span>Service Area:</span>
+        <strong style="margin-left: 8px;">Statewide Tamil Nadu & Industrial Corridors</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/919531857173?text=Hello%20Sri%20Venkateswara%20Crane%20Service,%20I%20have%20an%20urgent%20crane%20requirement." class="whatsapp-float" target="_blank" rel="noopener">
+  💬 WhatsApp (+91 95318 57173)
+</a>
+
+<footer style="padding: 32px 0; text-align: center; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line);">
+  &copy; 2026 Sri Venkateswara Crane Service. All rights reserved.[cite: 1]
+</footer>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+  function handleQuoteSubmit(e) {
+    e.preventDefault();
+    alert("Lift details submitted. Dispatch team will contact you shortly.");
+  }
+
+  const PAYMENT_WORKER_URL = "https://svc-payments.YOUR-SUBDOMAIN.workers.dev";
+  const payBtn = document.getElementById("pay-btn");[cite: 1]
+  const payStatus = document.getElementById("pay-status");[cite: 1]
+  const amountInput = document.getElementById("pay-amount");[cite: 1]
+
+  payBtn.addEventListener("click", async () => {
+    const amount = Number(amountInput.value);[cite: 1]
+    if (!amount || amount <= 0) {[cite: 1]
+      payStatus.textContent = "Enter a valid amount.";[cite: 1]
+      return;[cite: 1]
+    }
+    payBtn.disabled = true;[cite: 1]
+    payStatus.textContent = "Creating payment order…";[cite: 1]
+
+    try {
+      const orderRes = await fetch(`${PAYMENT_WORKER_URL}/create-order`, {[cite: 1]
+        method: "POST",[cite: 1]
+        headers: { "Content-Type": "application/json" },[cite: 1]
+        body: JSON.stringify({ amount }),[cite: 1]
+      });
+      const order = await orderRes.json();[cite: 1]
+      if (!orderRes.ok) throw new Error(order.error || "Order creation failed");[cite: 1]
+
+      const rzp = new Razorpay({[cite: 1]
+        key: order.key_id,[cite: 1]
+        amount: order.amount,[cite: 1]
+        currency: order.currency,[cite: 1]
+        name: "Sri Venkateswara Crane Service",
+        description: "Booking Advance",
+        order_id: order.order_id,[cite: 1]
+        handler: async function (response) {[cite: 1]
+          payStatus.textContent = "Verifying transaction…";[cite: 1]
+          const verifyRes = await fetch(`${PAYMENT_WORKER_URL}/verify`, {[cite: 1]
+            method: "POST",[cite: 1]
+            headers: { "Content-Type": "application/json" },[cite: 1]
+            body: JSON.stringify({[cite: 1]
+              order_id: response.razorpay_order_id,[cite: 1]
+              payment_id: response.razorpay_payment_id,[cite: 1]
+              signature: response.razorpay_signature,[cite: 1]
+            }),
+          });
+          const verify = await verifyRes.json();[cite: 1]
+          payStatus.textContent = verify.verified[cite: 1]
+            ? "✅ Advance received. Booking confirmed."
+            : "⚠️ Verification error. Please contact dispatch.";
+        },
+        theme: { color: "#d4af37" },[cite: 1]
+      });
+
+      rzp.on("payment.failed", () => {[cite: 1]
+        payStatus.textContent = "Payment cancelled or failed.";[cite: 1]
+        payBtn.disabled = false;[cite: 1]
+      });
+      rzp.open();[cite: 1]
+      payStatus.textContent = "";[cite: 1]
+    } catch (err) {
+      payStatus.textContent = "Unable to start transaction. Please contact dispatch.";[cite: 1]
+    } finally {
+      payBtn.disabled = false;[cite: 1]
+    }
+  });
+</script>
+</body>
+</html>
